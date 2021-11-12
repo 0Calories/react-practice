@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import TodoItem from './TodoItem';
+import AddTodoForm from './AddTodoForm';
 
 const initialTodos: Todo[] = [
     {
@@ -29,10 +30,27 @@ const TodoContainer = () => {
         }));
     };
 
+    const addTodo: AddTodo = (text: string) => {
+        const newTodo: Todo = {
+            text,
+            isComplete: false
+        }
+
+        setTodos(todos => [...todos, newTodo]);
+    }
+
     return (
-        <ul>
-            {todos.map(todo => <TodoItem todo={todo} markTodoComplete={markTodoComplete} />)}
-        </ul>
+        <div>
+            {todos.map(todo =>
+                <TodoItem
+                    todo={todo}
+                    markTodoComplete={markTodoComplete}
+                    key={todo.text}
+                />
+            )}
+
+            <AddTodoForm addTodo={addTodo} />
+        </div>
     );
 }
 

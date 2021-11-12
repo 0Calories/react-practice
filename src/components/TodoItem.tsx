@@ -5,7 +5,7 @@ interface Props {
 
 const TodoItem: React.FC<Props> = ({ todo, markTodoComplete }) => {
     return (
-        <li>
+        <div>
             <label
                 style={{ textDecoration: todo.isComplete ? 'line-through' : undefined }}
             >
@@ -16,7 +16,7 @@ const TodoItem: React.FC<Props> = ({ todo, markTodoComplete }) => {
                 />
                 {todo.text}
             </label>
-        </li>
+        </div>
 
     );
 }
