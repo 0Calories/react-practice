@@ -2,23 +2,25 @@ import { useState, useEffect } from "react";
 
 import './CountdownTimer.css';
 
-const DEFAULT_TIME = 10
+interface Props {
+    time: number
+}
 
-const CountdownTimer = () => {
-    const [timeLeft, setTimeLeft] = useState(DEFAULT_TIME);
+const CountdownTimer: React.FC<Props> = ({ time }) => {
+    const [timeLeft, setTimeLeft] = useState(time);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
             if (timeLeft > 0) {
                 setTimeLeft(time => time - 1);
-            }
+            } else { }
         }, 1000);
 
         return () => clearInterval(intervalId);
     }, [timeLeft]);
 
     const handleResetClick = () => {
-        setTimeLeft(DEFAULT_TIME);
+        setTimeLeft(time);
     };
 
     return (
