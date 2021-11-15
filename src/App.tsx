@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       {/* <TodoContainer /> */}
-      <CountdownTimer time={60} />
+      <CountdownTimer time={{ hours: 1, minutes: 1, seconds: 10 }} />
     </div>
   );
 }
